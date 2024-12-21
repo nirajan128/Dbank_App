@@ -1,4 +1,5 @@
 import Debug "mo:base/Debug";
+import Nat "mo:base/Nat";
 
 //A Cannister
 actor DBank{
@@ -10,13 +11,13 @@ actor DBank{
   //Debug.print(debug_show(currentMoney)); //print only takes string as param so in order to convert currentMoney to string debug_show is used
   //Debug.print(debug_show(transacId)); //print only takes string as param so in order to convert transac to string debug_show is used
   
-  //Private function
-  func topUp(){
-     currentMoney += 1;
-     Debug.print(debug_show(currentMoney));
-  }; //function should be cloed with semi colons ; as well
+  //[ ** Private function ** ]
+  //func topUp(){
+     //currentMoney += 1;
+     //Debug.print(debug_show(currentMoney));
+  //}; //function should be cloed with semi colons ; as well
 
-  topUp();
+  //topUp();
 
   //public function: Required if the function is t be used outside a cannister
   //function can belled in teminal: dfx cannister call projectName functionName
@@ -24,4 +25,14 @@ actor DBank{
      currentMoney += 1;
      Debug.print(debug_show(currentMoney));
   };
+
+  public func topUp(amount: Nat){ //prameter structure, paramName : type
+     currentMoney += amount;
+     Debug.print(debug_show(currentMoney));
+  };
+
+  public func withdraw(amount: Nat){
+    currentMoney -= amount;
+    Debug.print(debug_show(currentMoney));
+  }
 }
