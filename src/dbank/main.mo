@@ -21,6 +21,7 @@ actor DBank{
   //public function: Required if the function is t be used outside a cannister
   //function can belled in teminal: dfx cannister call projectName functionName
   public func greet(){
-     Debug.print("Wassup");
+     currentMoney += 1;
+     Debug.print(debug_show(currentMoney));
   };
 }
